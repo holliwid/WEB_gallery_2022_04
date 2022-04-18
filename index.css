@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    width: 700px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    /*  box-shadow is from materialize css's website */
+    -webkit-box-shadow: 9px 7px 28px 33px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 9px 7px 28px 33px rgba(34, 60, 80, 0.2);
+    box-shadow: 9px 7px 28px 33px rgba(34, 60, 80, 0.2);
+}
+
+.container img {
+    width: 700px;
+    z-index: -2;
+}
+
+button {
+    height: 10%;
+    border: none;
+    outline: none;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    padding: 1em;
+    display: flex;
+}
+
+button .arrow {
+    border: solid #fff;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 10px;
+    transition: transform 0.3s ease-out;
+    outline: none;
+}
+
+#right-btn {
+    margin: auto 0 auto -2em;
+}
+
+#right-btn .arrow {
+    transform: rotate(-45deg);
+}
+
+#left-btn {
+    z-index: 0;
+    margin: auto -2em auto 0;
+}
+
+#left-btn .arrow {
+    transform: rotate(135deg);
+}
+
+
+
+.button-carousel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.button-carousel img{
+    width: 120px;
+    height: 90px;
+    padding: 0% 10px;
+}
+
+.active-img{
+    -webkit-box-shadow: 9px 7px 37px 33px rgba(39, 123, 187, 0.4);
+    -moz-box-shadow: 9px 7px 37px 33px rgba(39, 123, 187, 0.4);
+    box-shadow: 9px 7px 37px 33px rgba(39, 123, 187, 0.4);
+}
