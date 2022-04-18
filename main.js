@@ -18,62 +18,96 @@ let pictures = ['img/1.jpg',
 img.src = pictures[0];
 let position = 0;
 
-const moveRight = () => {
-    shadow_active()
-    console.log(position);
-    if (position >= pictures.length - 1) {
-        change_bottom_img()
-        position = 0
-        img.src = pictures[position];
-        return;
-    }
-    change_bottom_img()
 
-    img.src = pictures[position + 1];
-    position++;
-    shadow_active()
+function moveRight_alt(){
+    let img = document.getElementById("carousel").src.slice(22)
+    let index = pictures.indexOf(img)
+    console.log(index)
+    if (index < pictures.length - 1){
+        document.getElementById("carousel").src = pictures[index+1]
+    }
+    else{
+        document.getElementById("carousel").src = pictures[0]
+    }
 }
 
-const moveLeft = () => {
-    if (position < 1) {
-        position = pictures.length - 1;
-        img.src = pictures[position];
-        change_bottom_img()
-        return;
+
+function moveLeft_alt(){
+    let img = document.getElementById("carousel").src.slice(22)
+    let index = pictures.indexOf(img)
+    console.log(index)
+    if (index != 0){
+        document.getElementById("carousel").src = pictures[index-1]
     }
-    img.src = pictures[position - 1];
-    position--;
-    change_bottom_img()
-    shadow_active()
+    else{
+        document.getElementById("carousel").src = pictures[pictures.length-1]
+    }
 }
 
-rightBtn.addEventListener("click", moveRight);
-leftBtn.addEventListener("click", moveLeft);
 
 
-function change_bottom_img(){
+rightBtn.addEventListener("click", moveRight_alt);
+leftBtn.addEventListener("click", moveLeft_alt);
+
+
+function change_bottom_img_right(){
     let img_1 = document.getElementById("button_img_1")
     let img_2 = document.getElementById("button_img_2")
     let img_3 = document.getElementById("button_img_3")
 
-    
+    let index = pictures.indexOf(img_1.src.slice(22))
+    console.log(index)
 
-    if (position+2 < pictures.length) {
-    img_1.src = `img/${position+1}.jpg`
-    img_2.src = `img/${position+2}.jpg`
-    img_3.src = `img/${position+3}.jpg`
+    if (index+3 < pictures.length) {
+        console.log(index+1)
+    img_1.src = `img/${index+2}.jpg`
+    img_2.src = `img/${index+3}.jpg`
+    img_3.src = `img/${index+4}.jpg`
     }
-    else if (position+1 == pictures.length){
-        img_1.src = `img/${position+1}.jpg`
+    else if (index+3 == pictures.length){
+        img_1.src = `img/${index+2}.jpg`
+        img_2.src = `img/${index+3}.jpg`
+        img_3.src = `img/1.jpg`
+    }
+    else if (index+2 == pictures.length){
+        img_1.src = `img/${index+2}.jpg`
         img_2.src = `img/1.jpg`
         img_3.src = `img/2.jpg`
     }
     else{
-        img_1.src = `img/${position+1}.jpg`
-        img_2.src = `img/${position+2}.jpg`
+        img_1.src = `img/1.jpg`
+        img_2.src = `img/2.jpg`
+        img_3.src = `img/3.jpg`
+    }
+}
+
+function change_bottom_img_left(){
+    let img_1 = document.getElementById("button_img_1")
+    let img_2 = document.getElementById("button_img_2")
+    let img_3 = document.getElementById("button_img_3")
+
+    let index = pictures.indexOf(img_3.src.slice(22))
+
+    if (index-3 >= 0) {
+        img_1.src = `img/${index-2}.jpg`
+        img_2.src = `img/${index-1}.jpg`
+        img_3.src = `img/${index}.jpg`
+    }
+    else if (index-3 == -1){
+        img_1.src = `img/${pictures.length}.jpg`
+        img_2.src = `img/1.jpg`
+        img_3.src = `img/2.jpg`
+    }
+    else if (index-3 == -2){
+        img_1.src = `img/${pictures.length-1}.jpg`
+        img_2.src = `img/${pictures.length}.jpg`
         img_3.src = `img/1.jpg`
     }
-
+    else{
+        img_1.src = `img/${pictures.length-2}.jpg`
+        img_2.src = `img/${pictures.length-1}.jpg`
+        img_3.src = `img/${pictures.length}.jpg`
+    }
 }
 
 function click_on_img(number_of_img){
@@ -86,7 +120,6 @@ function click_on_img(number_of_img){
         position = Number(img_numb.src.slice(26,-4)) - 2
     else
         position = 0
-    change_bottom_img()
     shadow_active()
 }
 
@@ -113,3 +146,22 @@ function shadow_active(){
         img_3.classList.add("active-img")
     }
 }
+
+
+let left_btn_button = document.getElementById("left-btn-button")
+let right_btn_button= document.getElementById("right-btn-button")
+
+
+
+const moveRight_button = () => {
+    change_bottom_img_right()
+    shadow_active()
+}
+
+const moveLeft_button = () => {
+    change_bottom_img_left()
+    shadow_active()
+}
+
+left_btn_button.addEventListener("click", moveLeft_button);
+right_btn_button.addEventListener("click", moveRight_button);

@@ -73,6 +73,26 @@ button .arrow {
 
 
 
+
+#right-btn-button {
+    margin: auto 0 auto 2em;
+}
+
+#right-btn-button .arrow {
+    transform: rotate(-45deg);
+}
+
+
+#left-btn-button{
+    margin: auto 0 auto -2em;
+}
+
+#left-btn-button .arrow {
+    transform: rotate(135deg);
+}
+
+
+
 .button-carousel{
     display: flex;
     justify-content: center;
@@ -87,7 +107,7 @@ button .arrow {
 }
 
 .active-img{
-    -webkit-box-shadow: 9px 7px 37px 33px rgba(39, 123, 187, 0.4);
-    -moz-box-shadow: 9px 7px 37px 33px rgba(39, 123, 187, 0.4);
-    box-shadow: 9px 7px 37px 33px rgba(39, 123, 187, 0.4);
+    -webkit-box-shadow: 2px 4px 13px 19px rgba(0, 113, 201, 0.46);
+    -moz-box-shadow: 2px 4px 13px 19px rgba(0, 113, 201, 0.46);
+    box-shadow: 2px 4px 13px 19px rgba(0, 113, 201, 0.46);
 }
